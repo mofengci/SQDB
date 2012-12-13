@@ -1,5 +1,5 @@
 SQDB::Application.routes.draw do
-  match '/home', to: 'pages#home'
+  root to: 'pages#home'
 
   match '/help', to: 'pages#help'
 
