@@ -1,5 +1,6 @@
 SQDB::Application.routes.draw do
-  get "user/new"
+
+  resources :users
 
   root to: 'pages#home'
 
@@ -9,7 +10,7 @@ SQDB::Application.routes.draw do
 
   #match 'signin', to: ''
 
-  match 'signup', to: 'user#new'
+  match 'signup', to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
