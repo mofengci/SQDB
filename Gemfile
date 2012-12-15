@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
+gem 'bootstrap-sass'
+
+gem 'bcrypt-ruby'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -36,3 +39,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+group :development do
+  gem 'annotate'
+end
