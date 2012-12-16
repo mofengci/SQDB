@@ -11,6 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215213541) do
+ActiveRecord::Schema.define(:version => 20121216011203) do
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'boolen' for column 'admin'
 
 end
