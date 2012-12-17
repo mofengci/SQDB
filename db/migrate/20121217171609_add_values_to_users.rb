@@ -1,6 +1,6 @@
 class AddValuesToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :ispoor, :boolen, default: false
+    add_column :users, :ispoor, :boolean, default: false
     add_column :users, :priority, :integer, default: 0
     add_column :users, :userid, :string
     add_column :users, :code, :string
