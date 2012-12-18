@@ -10,5 +10,21 @@
      School: <%= @user.school %>
     </p>
   </section>
+  <div class="row">
+    <div class="span6 offset3">
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages' %>
+  	<%= f.label :avadutytime_0 %>
+  	<%= f.number_field :avadutytime_0 %>
+  	<%= f.label :avadutytime_1 %>
+  	<%= f.number_field :avadutytime_1 %>
+  	<%= f.label :avadutytime_2 %>
+  	<%= f.number_field :avadutytime_2 %>
+  	<%= f.label :avadutytime_3 %>
+  	<%= f.number_field :avadutytime_3 %>
+   <div><%= f.submit "Save changes", class: "btn btn-large btn-primary" %></div>
+      <% end %>
+    </div>
+  </div>
   </aside>
 </div>
