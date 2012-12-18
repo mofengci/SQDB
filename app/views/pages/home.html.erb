@@ -1,5 +1,11 @@
 <div class="center hero-unit">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+  <h1>Welcome To Who's On Duty!</h1>
+  <p>For information about this application or our team. Visit </p>
+  <%= link_to "About", about_path, class: "btn btn-large btn-primary" %>
+  <p>For Help, please see: </p>
+  <%= link_to "help", help_path, class: "btn btn-large btn-primary" %>
+  <p>For users,please first: </p>
+  <%= link_to "sign in",signin_path, class: "btn btn-large btn-primary" %>
+  <p>Or, you may be Looking for this: </p>
   <%= link_to "Sign Up Now!", signup_path,class: "btn btn-large btn-primary" %>
 </div>
