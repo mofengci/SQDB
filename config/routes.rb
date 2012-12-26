@@ -6,6 +6,8 @@ SQDB::Application.routes.draw do
 
   root to: 'pages#home'
 
+  match 'result', to: 'result#result'
+
   match '/help', to: 'pages#help'
 
   match '/about', to: 'pages#about'

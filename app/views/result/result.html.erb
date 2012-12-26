@@ -1,0 +1,42 @@
+<div class="hero-unit">
+<h1>排班表</h1>
+<p>本周排班结果</p>
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>员工排班表</th>
+		<th>周一</th>
+		<th>周二</th>
+		<th>周三</th>
+		<th>周四</th>
+		<th>周五</th>
+		<th>周六</th>
+		<th>周日</th>
+	</tr>
+  <tr>
+		<th>下午</th>
+    <% @results.each do |res| %>
+      <% if res.id%2==1 %>
+        <th><%= find_user res.manager %></br>
+						<%= find_user res.coach %></br>
+						<%= find_user res.female %></br>
+						<%= find_user res.male1 %></br>
+						<%= find_user res.male2 %></br>
+				</th>
+      <% end %>
+    <% end %>
+  </tr>
+  <tr>
+		<th>晚上</th>
+    <% @results.each do |res| %>
+      <% if res.id%2==0 %>
+        <th><%= find_user res.manager %></br>
+						<%= find_user res.coach %></br>
+						<%= find_user res.female %></br>
+						<%= find_user res.male1 %></br>
+						<%= find_user res.male2 %></br>
+				</th>
+      <% end %>
+    <% end %>
+  </tr>
+</table>
+</div>

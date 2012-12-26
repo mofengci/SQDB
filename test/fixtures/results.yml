@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  staff: 1
+  manager: 1
+
+two:
+  staff: 1
+  manager: 1
