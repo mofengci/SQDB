@@ -1,4 +1,26 @@
 <div class="hero-unit">
 <h1>帮助</h1>
 <h2>一些帮助信息，敬请期待后续完善</h2>
-</div>
+<p>如果您尚未注册，请点击<%= link_to "注册", signup_path,class: "btn btn-primary" %>。<br>
+如果您已经注册，请先<%= link_to "登录", signin_path,class: "btn btn-success" %><br>
+登录后，您将看到四个选项框，分别对应您可以提交申请的四个班次<br>
+每个班次对应数字的含义如下：<br>
+<table class="table table-bordered table-hover table-striped">
+	<tr>
+		<th>班次</th>
+		<th>含义</th>
+	</tr>
+	<% (1..14).to_a.each do |i| %>
+	<tr>
+		<th><%= i %></th>
+		<th>周<%= (i+1)/2 %><% if i%2==1 %>下午<% else %>晚上<% end %></th>
+	</tr>
+	<% end %>
+	<tr>
+		<th>其它</th>
+		<th>无效申请</th>
+	</tr>
+</table>
+如果您想登出系统，请点击界面上方右侧选项“账户->登出”。<br>
+感谢您访问Who's On Duty网站，如有其它任何问题请联系<%= link_to "关于", about_path,class: "btn btn-primary" %><br>
+</p>
