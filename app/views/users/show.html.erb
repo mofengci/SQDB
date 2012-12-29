@@ -7,22 +7,22 @@
       <%= current_user.name %>
     </h1>
     <p>
-     School: <%= current_user.school %>
+     所在学校： <%= current_user.school %>
     </p>
   </section>
   <div class="row">
     <div class="span6 offset3">
       <%= form_for(current_user) do |f| %>
         <%= render 'shared/error_messages' %>
-  	<%= f.label :avadutytime_0 %>
+  	<%= f.label :当班时间1： %>
   	<%= f.number_field :avadutytime_0 %>
-  	<%= f.label :avadutytime_1 %>
+  	<%= f.label :当班时间2： %>
   	<%= f.number_field :avadutytime_1 %>
-  	<%= f.label :avadutytime_2 %>
+  	<%= f.label :当班时间3： %>
   	<%= f.number_field :avadutytime_2 %>
-  	<%= f.label :avadutytime_3 %>
+  	<%= f.label :当班时间4： %>
   	<%= f.number_field :avadutytime_3 %>
-   <div><%= f.submit "Save changes", class: "btn btn-large btn-primary" %></div>
+   <div><%= f.submit "保存更改", class: "btn btn-large btn-primary" %></div>
       <% end %>
     </div>
   </div>
@@ -30,14 +30,14 @@
   <% if current_user.admin? %>
     <% @users.each do |user| %>
       <%= form_for(user) do |f| %>
-        <h2>Change Values for: <%= user.name %></h2>
-        <%= f.label :ispoor %>
+        <h2>修改：<%= user.name %> 的数据</h2>
+        <%= f.label :是否贫困生 %>
         <%= f.check_box :ispoor %>
-        <%= f.label :position %>
+        <%= f.label :职位 %>
         <%= f.text_field :position %>
-        <%= f.label :priority %>
+        <%= f.label :优先级 %>
         <%= f.number_field :priority %>
-        <div> <%= f.submit "save", class: "btn btn-small" %></div>
+        <div> <%= f.submit "保存", class: "btn btn-small" %></div>
       <% end %>
     <% end %>
   <% end %>
