@@ -11,7 +11,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :name,:tel,:qq,:school, :password, :password_confirmation, :sex,:avadutytime_0, :avadutytime_1, :avadutytime_2, :avadutytime_3, :ispoor, :position, :priority
-  has_secure_password
+  has_secure_password 
   
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
@@ -22,8 +22,9 @@ class User < ActiveRecord::Base
   VALID_TEL_REGEX = /1\d{10}/i
   validates :tel,format:{with: VALID_TEL_REGEX},uniqueness:true
   
-  validates :password, presence: true, length: {minimum:6}
-  validates :password_confirmation, presence: true
+#  validates :password, length: {minimum:6}
+#  validates :password, presence: true, length: {minimum:6}
+#  validates :password_confirmation, presence: true
 
 
   private

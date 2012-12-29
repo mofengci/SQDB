@@ -5,16 +5,16 @@
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
-      <%= f.label :姓名 %>
+      <%= f.label :name ,"姓名" %>
       <%= f.text_field :name %>
 
-      <%= f.label :邮箱 %>
+      <%= f.label :email ,"邮箱" %>
       <%= f.text_field :email %>
 
-      <%= f.label :电话 %>
+      <%= f.label :tel ,"电话" %>
       <%= f.text_field :tel %>
 
-      <%= f.label :密码 %>
+      <%= f.label :password ,"密码" %>
       <%= f.password_field :password %>
 
       <%= f.label :password_confirmation, "确认密码" %>

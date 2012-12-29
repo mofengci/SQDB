@@ -14,13 +14,13 @@
     <div class="span6 offset3">
       <%= form_for(current_user) do |f| %>
         <%= render 'shared/error_messages' %>
-  	<%= f.label :当班时间1： %>
+  	<%= f.label :avadutytime_0 ,"当班时间1" %>
   	<%= f.number_field :avadutytime_0 %>
-  	<%= f.label :当班时间2： %>
+  	<%= f.label :avadutytime_1 ,"当班时间2" %>
   	<%= f.number_field :avadutytime_1 %>
-  	<%= f.label :当班时间3： %>
+  	<%= f.label :avadutytime_2 ,"当班时间3"%>
   	<%= f.number_field :avadutytime_2 %>
-  	<%= f.label :当班时间4： %>
+  	<%= f.label :avadutytime_3 ,"当班时间4"%>
   	<%= f.number_field :avadutytime_3 %>
    <div><%= f.submit "保存更改", class: "btn btn-large btn-primary" %></div>
       <% end %>
@@ -31,11 +31,11 @@
     <% @users.each do |user| %>
       <%= form_for(user) do |f| %>
         <h2>修改：<%= user.name %> 的数据</h2>
-        <%= f.label :是否贫困生 %>
+        <%= f.label :ispoor ,"贫困生？"%>
         <%= f.check_box :ispoor %>
-        <%= f.label :职位 %>
+        <%= f.label :position ,"职位"%>
         <%= f.text_field :position %>
-        <%= f.label :优先级 %>
+        <%= f.label :priority ,"优先级"%>
         <%= f.number_field :priority %>
         <div> <%= f.submit "保存", class: "btn btn-small" %></div>
       <% end %>
