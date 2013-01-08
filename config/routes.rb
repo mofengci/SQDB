@@ -4,6 +4,10 @@ SQDB::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
+  resources :profiles
+
+  resources :dutytimes
+
   root to: 'pages#home'
 
   match 'result', to: 'result#result'

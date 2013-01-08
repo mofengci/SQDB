@@ -1,0 +1,2 @@
+module DutytimesHelper
+end

@@ -10,7 +10,9 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name,:tel,:qq,:school, :password, :password_confirmation, :sex,:avadutytime_0, :avadutytime_1, :avadutytime_2, :avadutytime_3, :ispoor, :position, :priority
+  attr_accessible :email, :name,:password, :password_confirmation
+  has_one :profile, dependent: :destroy
+  has_one :dutytime, dependent: :destroy
   has_secure_password 
   
   before_save { |user| user.email = email.downcase }
@@ -19,12 +21,10 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false}
-  VALID_TEL_REGEX = /1\d{10}/i
-  validates :tel,format:{with: VALID_TEL_REGEX},uniqueness:true
   
-#  validates :password, length: {minimum:6}
-#  validates :password, presence: true, length: {minimum:6}
-#  validates :password_confirmation, presence: true
+  validates :password, length: {minimum:6}
+  validates :password, presence: true, length: {minimum:6}
+  validates :password_confirmation, presence: true
 
 
   private

@@ -17,7 +17,19 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    if !User.all.any?
+      @user.admin=true
+    end
     if @user.save
+
+      @profile=Profile.new
+      @profile.user_id=@user.id
+      @profile.save
+
+      @dutytime=Dutytime.new
+      @dutytime.user_id=@user.id
+      @dutytime.save
+      
       sign_in @user
       redirect_to @user
     else
@@ -28,6 +40,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @users= User.all
+    
   end
 
   def update

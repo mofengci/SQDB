@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121226100453) do
+ActiveRecord::Schema.define(:version => 20121230053609) do
+
+  create_table "dutytimes", :force => true do |t|
+    t.integer  "dutytime_0", :default => 0
+    t.integer  "dutytime_1", :default => 0
+    t.integer  "dutytime_2", :default => 0
+    t.integer  "dutytime_3", :default => 0
+    t.integer  "user_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "tel"
+    t.string   "qq"
+    t.string   "school"
+    t.string   "sex"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "results", :force => true do |t|
     t.integer  "female"
@@ -27,32 +47,11 @@ ActiveRecord::Schema.define(:version => 20121226100453) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "remember_token"
     t.boolean  "admin",           :default => false
-    t.boolean  "ispoor",          :default => false
-    t.integer  "priority",        :default => 0
     t.string   "userid"
-    t.string   "code"
-    t.integer  "accesslevel"
-    t.string   "tel"
-    t.string   "qq"
-    t.string   "school"
-    t.string   "sex",             :default => "male"
-    t.string   "position"
-    t.integer  "history_1",       :default => 0
-    t.integer  "history_2",       :default => 0
-    t.integer  "history_3",       :default => 0
-    t.integer  "history_4",       :default => 0
-    t.integer  "history_5",       :default => 0
-    t.integer  "history_6",       :default => 0
-    t.integer  "history_7",       :default => 0
-    t.integer  "history_8",       :default => 0
-    t.integer  "avadutytime_0",   :default => 0
-    t.integer  "avadutytime_1",   :default => 0
-    t.integer  "avadutytime_2",   :default => 0
-    t.integer  "avadutytime_3",   :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
