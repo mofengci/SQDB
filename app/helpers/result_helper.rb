@@ -62,6 +62,17 @@ module ResultHelper
 	def render_result
 		@users=User.all
 		#清空所有排班信息
+		if !Result.all.any?
+			(1..14).to_a.each do |i|
+				@result=Result.new
+				@result.manager=0
+				@result.coach=0
+				@result.female=0
+				@result.male1=0
+				@result.male2=0
+				@result.save
+			end
+		end
 		(1..14).to_a.each do |i|
 			@result=Result.find(i)
 			@result.manager=0
