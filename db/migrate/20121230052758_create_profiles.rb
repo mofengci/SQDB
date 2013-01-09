@@ -4,7 +4,7 @@ class CreateProfiles < ActiveRecord::Migration
     	t.string	:tel
     	t.string	:qq
     	t.string	:school
-    	t.string	:sex
+    	t.string	:sex, :default=>"male"
     	t.integer	:user_id
 
       t.timestamps

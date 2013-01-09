@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121230053609) do
+ActiveRecord::Schema.define(:version => 20130108173327) do
 
   create_table "dutytimes", :force => true do |t|
     t.integer  "dutytime_0", :default => 0
@@ -27,10 +27,19 @@ ActiveRecord::Schema.define(:version => 20121230053609) do
     t.string   "tel"
     t.string   "qq"
     t.string   "school"
-    t.string   "sex"
+    t.string   "sex",        :default => "male"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "properties", :force => true do |t|
+    t.string   "position",   :default => "staff"
+    t.boolean  "ispoor",     :default => false
+    t.integer  "priority",   :default => 0
+    t.integer  "user_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "results", :force => true do |t|

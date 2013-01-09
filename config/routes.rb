@@ -12,6 +12,8 @@ SQDB::Application.routes.draw do
 
   match 'result', to: 'result#result'
 
+  match 'generesult', to: 'result#generesult'
+
   match '/help', to: 'pages#help'
 
   match '/about', to: 'pages#about'

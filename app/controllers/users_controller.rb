@@ -29,6 +29,10 @@ class UsersController < ApplicationController
       @dutytime=Dutytime.new
       @dutytime.user_id=@user.id
       @dutytime.save
+
+      @property=Property.new
+      @property.user_id=@user.id
+      @property.save
       
       sign_in @user
       redirect_to @user

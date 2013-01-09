@@ -3,7 +3,9 @@
 </br>
 </br>
 <p>本周排班结果</p>
-<p><% render_result %></p>
+<% if current_user.admin? %>
+	<%= link_to "排班",generesult_path,class: "btn btn-small btn-primary" %>
+<% end %>
 </div>
 <table class="table table-bordered table-hover">
   <tr>
