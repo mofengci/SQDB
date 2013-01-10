@@ -8,7 +8,11 @@ SQDB::Application.routes.draw do
 
   resources :dutytimes
 
+  resources :property
+
   root to: 'pages#home'
+
+  match 'editproperty', to: 'property#edit'
 
   match 'result', to: 'result#result'
 

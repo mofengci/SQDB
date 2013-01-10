@@ -1,8 +1,9 @@
 <% provide(:title,'Sign up') %>
-<h1>注册</h1>
 
 <div class="row">
   <div class="span6 offset3">
+    <% if no_user %>
+    <h1>注册</h1>
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
       <%= f.label :name ,"姓名" %>
@@ -19,6 +20,10 @@
 
       <div><%= f.submit "注册", class: "btn btn-large btn-primary" %></div>
 
+    <% end %>
+    <% else %>
+    <h1>只允许管理员添加用户！</h1>
+    <div><%= link_to "返回首页",root_path, class: "btn btn-large btn-primary" %></div>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,24 @@
+<% provide(:title, "Edit property") %>
+<div class="hero-unit">
+	<% if current_user.admin? %>
+		<div class="row">
+			<div class="span6 offset3">
+				<% @properties.each do |property| %>
+					<h2>修改<%= find_user(property.user_id) %>的资料</h2>
+					<%= form_for(property) do |f| %>
+						<%= f.label :ispoor,"贫困生？" %>
+						<%= f.check_box :ispoor %>
+						<%= f.label :position,"职位：此处仅能填写manager、coach、staff三项" %>
+						<%= f.text_field :position %>
+						<%= f.label :priority,"优先级" %>
+						<%= f.number_field :priority %>
+						<div><%= f.submit "保存",class: "btn btn-small btn-primary" %></div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	<% else %>
+		<h2 class="alert">权限不足</h2>
+	<% end %>
+</div>
+

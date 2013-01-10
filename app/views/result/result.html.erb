@@ -24,9 +24,9 @@
       <% if res.id%2==1 %>
         <th>经理：<%= find_user res.manager %></br>
 						教练：<%= find_user res.coach %></br>
-						<%= find_user res.female %></br>
-						<%= find_user res.male1 %></br>
-						<%= find_user res.male2 %></br>
+						女员工：<%= find_user res.female %></br>
+						男一号：<%= find_user res.male1 %></br>
+						男二号：<%= find_user res.male2 %></br>
 				</th>
       <% end %>
     <% end %>
@@ -37,9 +37,9 @@
       <% if res.id%2==0 %>
         <th>经理：<%= find_user res.manager %></br>
 						教练：<%= find_user res.coach %></br>
-						<%= find_user res.female %></br>
-						<%= find_user res.male1 %></br>
-						<%= find_user res.male2 %></br>
+						女员工：<%= find_user res.female %></br>
+						男一号：<%= find_user res.male1 %></br>
+						男二号：<%= find_user res.male2 %></br>
 				</th>
       <% end %>
     <% end %>

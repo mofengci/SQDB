@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def index
     @users=User.all
+    @new_user=User.new
   end
 
   def create
@@ -34,8 +35,7 @@ class UsersController < ApplicationController
       @property.user_id=@user.id
       @property.save
       
-      sign_in @user
-      redirect_to @user
+      redirect_to users_path
     else
       render 'new'
     end

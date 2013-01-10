@@ -24,7 +24,8 @@ module ResultHelper
 					User.find(res.male2).property.priority+=1
 				else
 					per.property.priority+=1
-				end				
+				end	
+        per.property.save			
 			elsif pos=="manager"
 				if res.manager==0
 					res.manager=per.id
@@ -35,6 +36,7 @@ module ResultHelper
 				elsif per.property.priority<=User.find(res.manager).property.priority
 					per.property.priority+=1
 				end
+        per.property.save
 			elsif pos=="coach"
 				if res.coach==0
 					res.coach=per.id
@@ -45,6 +47,7 @@ module ResultHelper
 				elsif per.property.priority<=User.find(res.coach).property.priority
 					per.property.priority+=1
 				end
+        per.property.save
 			elsif pos=="female"
 				if res.female==0
 					res.female=per.id
@@ -55,6 +58,7 @@ module ResultHelper
 				elsif per.property.priority<=User.find(res.female).property.priority
 					per.property.priority+=1
 				end
+        per.property.save
 			end
 		end
 	end
@@ -86,13 +90,17 @@ module ResultHelper
 		@users.each do |person|
 			if person.dutytime.dutytime_0==0
 				person.property.priority+=1
-			elsif person.dutytime.dutytime_1==0
-				person.property.priority+=1
-			elsif person.dutytime.dutytime_2==0
-				person.property.priority+=1
-			elsif person.dutytime.dutytime_3==0
+			end
+			if person.dutytime.dutytime_1==0
 				person.property.priority+=1
 			end
+			if person.dutytime.dutytime_2==0
+				person.property.priority+=1
+			end
+			if person.dutytime.dutytime_3==0
+				person.property.priority+=1
+			end
+      person.property.save
 		end
 		#重新生成排班信息
 		(1..14).to_a.each do |i|

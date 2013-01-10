@@ -4,3 +4,24 @@
 <ul class="users">
     <%= render @users %>
 </ul>
+<div class="row">
+	<div class="span6">
+		<% if current_user.admin? %>
+		<%= form_for(@new_user) do |f| %>
+  		<%= f.label :name ,"姓名" %>
+ 			<%= f.text_field :name %>
+
+		  <%= f.label :email ,"邮箱" %>
+		  <%= f.text_field :email %>
+
+		  <%= f.label :password ,"密码:请使用其学号" %>
+  		<%= f.password_field :password %>
+
+  		<%= f.label :password_confirmation, "确认密码" %>
+  		<%= f.password_field :password_confirmation %>
+
+  		<div><%= f.submit "添加用户", class: "btn btn-large btn-primary" %></div>
+		<% end %>
+		<% end %>
+	</div>
+</div>

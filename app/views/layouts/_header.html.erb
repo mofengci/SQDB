@@ -11,8 +11,11 @@
             <li id="fat-meau" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">账户<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><%= link_to "资料",current_user %></li>
-                <li><%= link_to "设置",edit_user_path(current_user)  %></li>
+                <li><%= link_to "用户资料",current_user %></li>
+                <li><%= link_to "资料设置",edit_user_path(current_user)  %></li>
+                <% if current_user.admin? %>
+                  <li><%= link_to "特殊修改", editproperty_path %></li>
+                <% end %>
                 <li class="divider"></li>
                 <li><%= link_to "登出",signout_path,method: "delete" %></li>
               </ul>

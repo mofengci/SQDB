@@ -1,32 +1,33 @@
-<% provide(:title, current_user.name) %>
+<% provide(:title, @user.name) %>
 <div class="hero-unit">
   <section>
     <h1>
-      <%= gravatar_for current_user %>
-      <%= current_user.name %>
+      <%= gravatar_for @user %>
+      <%= @user.name %>
     </h1>
     <h2>用户资料</h2>
     <table class="table table-bordered table-hover table-striped">
     	<tr>
     		<th>电话</th>
-    		<th><%= current_user.profile.tel %></th>
+    		<th><%= @user.profile.tel %></th>
     	</tr>
     	<tr>
     		<th>QQ</th>
-    		<th><%= current_user.profile.qq %></th>
+    		<th><%= @user.profile.qq %></th>
     	</tr>
     	<tr>
     		<th>学校</th>
-    		<th><%= current_user.profile.school %></th>
+    		<th><%= @user.profile.school %></th>
     	</tr>
     	<tr>
     		<th>性别</th>
-    		<th><%= current_user.profile.sex %></th>
+    		<th><%= @user.profile.sex %></th>
     	</tr>
     </table>
+    <% if current_user==@user %>
     <h2>提交当班表</h2>
     <div class="row span6 offset3">
-      <%= form_for (@current_user.dutytime) do |f| %>
+      <%= form_for (current_user.dutytime) do |f| %>
       <%= f.label :dutytime_0, "当班时间1" %>
       <%= f.number_field :dutytime_0 %>
       <%= f.label :dutytime_1, "当班时间2" %>
@@ -37,6 +38,8 @@
       <%= f.number_field :dutytime_3 %>
       <div><%= f.submit "提交！", class: "btn btn-large btn-primary" %></div>
       <% end %>
+      <p>任何疑问请访问<%= link_to "帮助", help_path ,class: "btn btn-primary btn-small"%></p>
     </div>
+    <% end %>
   </section>
 </div>
